@@ -24,6 +24,8 @@ def verificar_vagas():
 
     encontrou_ti = re.search(r"\bti\b", texto, re.IGNORECASE)
     encontrou_info = re.search(r"informática", texto, re.IGNORECASE)
+    encontrou_prom = re.search(r"promotor", texto, re.IGNORECASE)
+    
 
     if encontrou_ti or encontrou_info:
         enviar_telegram(
@@ -31,6 +33,7 @@ def verificar_vagas():
             "Foi encontrada referência a:\n"
             f"{'TI' if encontrou_ti else ''} "
             f"{'Informática' if encontrou_info else ''}\n\n"
+            f"{'promotor' if encontrou_info else ''}\n\n"
             f"Link: {URL}"
         )
 
